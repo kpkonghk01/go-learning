@@ -15,11 +15,35 @@ gvm install go1.18.3 -B
 gvm use go1.18.3 --default
 ```
 
+## Project init
+
+```
+mkdir <your project name>
+cd <your project name>
+go mod init <your git host>/<your git acc>/<your project name>
+# e.g. github.com/kpkonghk01/go-learning
+```
+
 ### VSCode settings
 
 [VSCode setting](https://github.com/golang/vscode-go/issues/971#issuecomment-927666108)
 
 [VSCode syntax highlight](https://code.visualstudio.com/docs/languages/go)
+
+### Local doc
+
+```
+# go install golang.org/x/tools/cmd/godoc@latest
+godoc -http :8000
+```
+
+go to http://localhost:8000/pkg to see all the packages you installed
+
+### Run test
+
+```
+go test ./src
+```
 
 ### Need Research:
 
