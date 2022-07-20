@@ -35,6 +35,7 @@ go mod init <your git host>/<your git acc>/<your project name>
 ```
 # go install golang.org/x/tools/cmd/godoc@latest
 godoc -http :8000
+# and navigate to http://localhost:8000/pkg/
 ```
 
 go to http://localhost:8000/pkg to see all the packages you installed
@@ -42,7 +43,8 @@ go to http://localhost:8000/pkg to see all the packages you installed
 ### Run test
 
 ```
-go test ./src
+# https://blog.riff.org/2014_09_27_go_tip_of_the_day_running_tests_for_all_subpackages_recursively
+go test ./src/... #-cover #-bench=.
 ```
 
 ### Need Research:
@@ -63,3 +65,9 @@ go test ./src
 - How to make a http service
 - How to make cmd
 - `npm run` in go? use makefile? or don't need?
+- code structure (https://talks.golang.org/2014/organizeio.slide#9)
+
+### Materials
+
+- https://gobyexample.com/
+- https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/hello-world
