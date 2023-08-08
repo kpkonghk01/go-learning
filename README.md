@@ -47,6 +47,25 @@ go to http://localhost:8000/pkg to see all the packages you installed
 go test ./src/... #-cover #-bench=.
 ```
 
+### Benchmark example
+```
+go test -bench=.\src\concurrency\
+```
+
+### race condition test
+
+need enable CGO_ENABLED, so use bat
+```
+.\race.bat
+```
+
+### Code scan
+```
+go install github.com/kisielk/errcheck@latest
+
+errcheck ./src/...
+```
+
 ### Need Research:
 
 - Basic syntax (https://go.dev/doc/)

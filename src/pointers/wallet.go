@@ -1,14 +1,38 @@
 package pointers
 
-type Wallet struct{}
+import (
+	"errors"
+	"fmt"
+)
 
-func (w Wallet) Deposit(amount int) {
+type Bitcoin int
 
+type Wallet struct {
+	balance Bitcoin
 }
 
-func (w Wallet) Balance() int {
-	return 0
+func (w *Wallet) Deposit(amount Bitcoin) {
+	w.balance += amount
 }
 
-// WIP, continue here:
+var ErrInsufficientFunds = errors.New("cannot withdraw, insufficient funds")
+
+func (w *Wallet) Withdraw(amount Bitcoin) error {
+
+	if amount > w.balance {
+		return ErrInsufficientFunds
+	}
+
+	w.balance -= amount
+	return nil
+}
+
+func (w *Wallet) Balance() Bitcoin {
+	return w.balance
+}
+
+func (b Bitcoin) String() string {
+	return fmt.Sprintf("%d BTC", b)
+}
+
 // https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/pointers-and-errors#write-enough-code-to-make-it-pass
