@@ -49,14 +49,16 @@ go test ./src/... #-cover #-bench=.
 
 ### Benchmark example
 ```
-go test -bench=.\src\concurrency\
+cd src\concurrency\v1
+go test -bench="."
 ```
 
 ### race condition test
 
-need enable CGO_ENABLED, so use bat
+need GCC, follow https://blog.csdn.net/m0_52559040/article/details/131603782 
+(step 1: download win32 ucrt build, unzip anywhere you place softwares, step 2: add bin folder into environment paths)
 ```
-.\race.bat
+go test -race .\src\concurrency\v2\
 ```
 
 ### Code scan

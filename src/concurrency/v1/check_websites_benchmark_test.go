@@ -15,7 +15,7 @@ func BenchmarkCheckWebsites(b *testing.B) {
 	for i := 0; i < len(urls); i++ {
 		urls[i] = "a url"
 	}
-	b.ResetTimer()
+
 	for i := 0; i < b.N; i++ {
 		CheckWebsites(slowStubWebsiteChecker, urls)
 	}
